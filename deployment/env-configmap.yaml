@@ -10,4 +10,4 @@ data:
   AWS_BUCKET: micro-bucketproj
   AWS_REGION: us-east-1AWS_PROFILE=default
   JWT_SECRET: testing
-  URL: http://localhost:8100
+  URL: http://ad36051cb1ba249a29148116ce021668-1151055507.us-east-2.elb.amazonaws.com:8100
