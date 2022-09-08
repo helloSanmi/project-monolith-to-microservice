@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: docker.io/idowuoluwasanmi/udagram-frontend
+        image: docker.io/idowuoluwasanmi/udagram-frontend:v6
         ports: 
         - containerPort: 80
         resources:
