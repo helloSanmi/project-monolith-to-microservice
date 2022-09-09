@@ -1,27 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    service: frontend
   name: frontend
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      run: frontend
-  replicas: 2
+      service: frontend
   template:
     metadata:
       labels:
-        run: frontend
+        service: frontend
+        api: external        
     spec:
       containers:
-      - name: frontend
-        image: docker.io/idowuoluwasanmi/udagram-frontend:v6
-        ports: 
+      - image: idowuoluwasanmi/udagram-frontend:v6
+        name: frontend
+        imagePullPolicy: Always          
+        ports:
         - containerPort: 80
         resources:
-          limits:
-            cpu: 500m
           requests:
-            cpu: 200m
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"                
+      restartPolicy: Always
 
 ---
 apiVersion: v1
